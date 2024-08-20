@@ -1,7 +1,7 @@
 import React from "react";
 
 const Title = ({ children }: any) => {
-  return <h1 className="font-bold text-2xl">{children}</h1>;
+  return <h2 className="font-medium text-2xl">{children}</h2>;
 };
 
 export default Title;

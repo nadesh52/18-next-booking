@@ -14,16 +14,12 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="relative max-w-screen-sm mx-auto px-8 md:px-0">
-        <header className="sticky top-0 bg-white z-[999]">
-          <Navbar />
-        </header>
-        <main className="min-h-[calc(100dvh-153px)] overflow-hidden overflow-y-scroll no-scrollbar">
+      <body className="relative mx-auto max-w-screen-sm">
+        <Navbar />
+        <main className="scrollbar-none min-h-[calc(100dvh-126px)] overflow-hidden overflow-y-scroll">
           {children}
         </main>
-        <footer className="sticky bottom-0 bg-white w-full">
-          <BottomBar />
-        </footer>
+        <BottomBar />
       </body>
     </html>
   );

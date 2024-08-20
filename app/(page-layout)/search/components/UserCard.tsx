@@ -8,18 +8,12 @@ interface UserProps {
 
 const UserCard = (props: UserProps) => {
   return (
-    <div className="flex flex-col items-center mx-1">
-      <div className="h-[110px]">
-        <Image
-          src="https://placehold.co/100x120.jpg"
-          alt=""
-          height={100}
-          width={100}
-          className="rounded-xl"
-        />
+    <div className="bg-slate-200 flex h-[80px] w-[80px] flex-col rounded-lg">
+      <div className="w-full overflow-hidden text-ellipsis p-1">
+        <span>{props.name}</span>
       </div>
-      <div className="w-[90px] box-border overflow-hidden text-ellipsis">
-        <span className="text-lg">{props.name}</span>
+      <div className="h-full w-full flex items-center justify-center">
+        <Image src="/assets/icons/8.png" width={512} height={512} alt="icon" className="w-[40px] h-[40px]" />
       </div>
     </div>
   );

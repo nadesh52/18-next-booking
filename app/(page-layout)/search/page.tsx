@@ -1,8 +1,6 @@
 "use client";
 
 import Title from "@/components/Title";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import UserCard from "./components/UserCard";
@@ -25,11 +23,11 @@ const Search = () => {
     <article className="px-5">
       <div className="mt-10">
         <label className="relative">
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faMagnifyingGlass}
             size="xl"
             className="absolute bottom-0 left-2.5 text-gray pointer-events-none"
-          />
+          /> */}
           <input
             type="text"
             placeholder="search seller"
@@ -39,16 +37,16 @@ const Search = () => {
       </div>
 
       <div className="mt-10">
-        <Title>Top Review</Title>
-        <nav className="py-4 w-auto whitespace-nowrap no-scrollbar overflow-hidden overflow-x-scroll">
-          <ul className="flex justify-start gap-4">
+        <Title>Top Credit</Title>
+        <div className="py-4 w-full whitespace-nowrap scrollbar-thin overflow-hidden overflow-x-scroll">
+          <ul className="flex justify-start items-center gap-4">
             {users.map((user: any, i: any) => (
               <li key={i}>
                 <UserCard {...user} />
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
       </div>
     </article>
   );

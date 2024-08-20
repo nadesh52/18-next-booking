@@ -7,7 +7,7 @@ import Login from "../(auth-layout)/login/page";
 
 const Home = () => {
   return (
-    <article className="px-5">
+    <article className="h-full">
       {/* no login */}
       {/* <HomeMenu /> */}
       {/* if login */}

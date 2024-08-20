@@ -31,22 +31,21 @@ const TransactionCard = () => {
       {users.map((user: any, i: any) => (
         <div
           key={i}
-          className="bg-white border-base border py-2 px-4 rounded-lg shadow-md my-6"
+          className="bg-white py-2 px-4 rounded-lg shadow-md my-6"
           id="transaction-card"
         >
           <div>
             <div className="my-2 flex justify-between items-center">
               <div>
-                {/* <p className="text-gray text-sm">with</p> */}
-                <div className="flex items-center gap-2 my-1">
+                <div className="flex items-center gap-4 my-4">
                   <Image
-                    src="https://placehold.co/30.jpg"
+                    src="https://placehold.co/50.jpg"
                     alt="icon"
-                    width={30}
-                    height={30}
+                    width={50}
+                    height={50}
                     className="rounded-full"
                   />
-                  <p className="font-medium text-lg">{user.name}</p>
+                  <p className="font-medium text-xl">{user.name}</p>
                 </div>
               </div>
             </div>
@@ -55,11 +54,11 @@ const TransactionCard = () => {
 
             <div className="my-2 flex justify-between items-center">
               <div>
-                <p className="text-gray text-sm">booking id</p>
+                <p className="text-slate-400 text">Booking ID</p>
                 <p className="font-medium">{user.address.zipcode}</p>
               </div>
               <div>
-                <p className="text-gray text-sm">create at</p>
+                <p className="text-slate-400 text">Create At</p>
                 <p className="font-medium">{user.website}</p>
               </div>
               <div>

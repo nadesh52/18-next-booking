@@ -1,8 +1,5 @@
 "use client";
 
-import { faHeart as heart } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as heartFill } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Title from "@/components/Title";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -68,13 +65,13 @@ const Favorite = () => {
                       handleFav(user.id);
                     }}
                   >
-                    <FontAwesomeIcon
+                    {/* <FontAwesomeIcon
                       icon={!isFav[user.id] ? heart : heartFill}
                       size="xl"
                       className={`${
                         isFav[user.id] === true ? "text-accent" : ""
                       } hover:scale-125 transition-all`}
-                    />
+                    /> */}
                   </button>
                 </div>
               </div>

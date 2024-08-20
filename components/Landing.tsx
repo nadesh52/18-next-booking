@@ -1,104 +1,93 @@
 "use client";
 
-import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React, { useState } from "react";
 import Title from "./Title";
 import TransactionCard from "./TransactionCard";
+import { HeartIcon } from "@heroicons/react/24/outline";
 
 const Landing = () => {
   const [isEdit, setIsEdit] = useState(false);
-  const [desc, setDesc] = useState("Hello, World!");
+  const [desc, setDesc] = useState("Image by freepik");
 
   const handleSave = () => {
     setIsEdit(false);
   };
   return (
-    <article>
-      <section className="flex flex-col items-center">
+    <article className="bg-blue-200 pb-">
+      <div className="2xs:items-center 2xs:px-0 flex flex-col items-start px-4">
         <div className="relative w-full">
-          <div className="absolute top-0 h-[100px] md:h-[120px] w-full -z-50 bg-base pointer-events-none"></div>
+          <div className="2xs:block pointer-events-none absolute top-0 -z-40 hidden h-[100px] w-full bg-base md:h-[120px]"></div>
         </div>
-        <div className="border-4 border-white rounded-2xl max-w-[150px] max-h-[150px] md:max-w-[200px] md:max-h-[200px] overflow-hidden bg-cover mt-5">
+        <div className="border-slate-400 2xs:max-h-[170px] 2xs:max-w-[170px] my-4 max-h-[120px] max-w-[120px] overflow-hidden rounded-xl border bg-cover md:max-h-[200px] md:max-w-[200px]">
           <Image
-            src="https://placehold.co/200.jpg"
-            alt="profile"
+            src="/assets/logos/shoplogo.jpg"
+            alt="shop"
             width={200}
             height={200}
           />
         </div>
+      </div>
 
-        <div className="w-full mt-5">
+      <div>
+        <div className="2xs:mx-12 mx-4 mb-8 max-h-fit rounded-xl bg-white p-4">
           <div className="flex justify-between">
-            <div className="my-3">
+            <div>
               <p className="text-xl font-medium">USERNAME</p>
             </div>
 
             <div className="flex items-center gap-2">
               <p className="text-xl font-medium">30</p>
-              <FontAwesomeIcon
-                icon={faHeart}
-                size="xl"
-                className="text-accent"
-              />
+              <HeartIcon className="size-6" />
             </div>
           </div>
 
           <div className="group my-3">
             {isEdit === false ? (
-              <span>{desc}</span>
-            ) : (
-              <label>
-                <textarea
-                  className="bg-base h-40 w-full p-3 rounded-xl"
-                  value={desc}
-                  onChange={(e) => setDesc(e.target.value)}
-                />
-              </label>
-            )}
-
-            <div className="flex justify-end items-center gap-2 mt-2 text-gray group-hover:text-primary">
-              {isEdit === false ? (
+              <div className="flex items-center justify-between">
+                <p>{desc}</p>
                 <button
-                  className="border group-hover:border-primary w-fit px-2 rounded-full"
+                  className="w-fit rounded border p-2 text-gray group-hover:border-primary"
                   onClick={() => setIsEdit(!isEdit)}
                 >
-                  <FontAwesomeIcon icon={faPenToSquare} size="sm" />
-                  <span className="ml-2 text-sm">Edit</span>
+                  Edit
                 </button>
-              ) : (
-                <>
-                  <div>
-                    <button
-                      className="bg-success-primary text-white w-fit px-3 py-1 rounded-full"
-                      onClick={handleSave}
-                    >
-                      save
-                    </button>
-                  </div>
-                  <div>
-                    <button
-                      className="bg-error text-white w-fit px-3 py-1 rounded-full"
-                      onClick={() => setIsEdit(false)}
-                    >
-                      cancel
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
+              </div>
+            ) : (
+              <>
+                <label>
+                  <textarea
+                    className="bg-blue-100 caret-blue-600 focus-visible:ring-blue-400 h-40 w-full rounded-xl p-3 outline-none focus-visible:ring-2"
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
+                  />
+                </label>
+                <div className="mt-2 flex items-center justify-end gap-4">
+                  <button
+                    className="bg-red-300 hover:bg-red-600 w-fit rounded-md px-4 py-2 text-white"
+                    onClick={() => setIsEdit(false)}
+                  >
+                    cancel
+                  </button>
+                  <button
+                    className="bg-emerald-400 w-fit rounded-md px-4 py-2 text-white"
+                    onClick={handleSave}
+                  >
+                    save
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      </section>
 
-      <section>
-        <Title>Transactions</Title>
-        <div className="mt-5">
-          <TransactionCard />
+        <div className="rounded-t-3xl bg-white p-4">
+          <Title>Transactions</Title>
+          <div className="mt-5">
+            <TransactionCard />
+          </div>
         </div>
-      </section>
+      </div>
     </article>
   );
 };

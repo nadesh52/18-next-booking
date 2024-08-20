@@ -1,102 +1,81 @@
 "use client";
 
-import { faHeart as heartNorm } from "@fortawesome/free-regular-svg-icons";
 import {
-  faHouse,
-  faHouseUser,
-  faMagnifyingGlass,
-  faHeart as heartFill,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  HeartIcon,
+  HomeIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
+import {
+  HeartIcon as HeartFill,
+  HomeIcon as HomeFill,
+} from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
+// const menuItem = [
+//   {
+//     name: 'home',
+//     url: '/',
+//     icon: <HomeFill className="size-8" />,
+//     iconFill: <HomeIcon className="size-8" />
+//   },
+//   {
+//     name: 'search',
+//     url: '/search',
+//     icon: <MagnifyingGlassIcon
+//     className={`size-8 w-full hover:text-primary ${pathName === "/search" ? "stroke-2" : "stroke-1"}`}
+//   />
+//   },
+//   {
+//     name: 'favorite',
+//     url: '/favorite',
+//     icon: <HeartFill className="size-8" />,
+//     iconFill: <HeartIcon className="size-8" />
+//   },
+// ]
+
 const BottomBar = () => {
   const pathName = usePathname();
 
-  const homeBtn = () => {
-    if (pathName === "/") {
-      return (
-        <button className="w-full text-center hover:shadow hover:rounded-md hover:text-primary py-2">
-          <div>
-            <FontAwesomeIcon icon={heartFill} size="xl" />
-          </div>
-          <p className="text-sm p-1">home</p>
-        </button>
-      );
-    } else {
-      return (
-        <button className="w-full text-center text-gray hover:shadow hover:rounded-md hover:text-primary py-2">
-          <div>
-            <FontAwesomeIcon icon={heartNorm} size="xl" />
-          </div>
-          <p className="text-sm p-1">home</p>
-        </button>
-      );
-    }
-    return;
-  };
-
   return (
-    <nav>
-      <ul className="grid grid-cols-3 place-items-center p-2">
-        <li className="w-full">
+    <footer className="sticky bottom-0 bg-white">
+      <ul className="flex h-16 w-full items-center justify-between">
+        <li className="h-full w-full">
           <Link href="/">
-            {pathName === "/" ? (
-              <button className="w-full text-center hover:shadow hover:rounded-md hover:text-primary py-2">
-                <div>
-                  <FontAwesomeIcon icon={faHouseUser} size="xl" />
-                </div>
-                <p className="text-sm p-1">home</p>
-              </button>
-            ) : (
-              <button className="w-full text-center text-gray hover:shadow hover:rounded-md hover:text-primary py-2">
-                <div>
-                  <FontAwesomeIcon icon={faHouse} size="xl" />
-                </div>
-                <p className="text-sm p-1">home</p>
-              </button>
-            )}
+            <div className="flex h-full w-full items-center justify-center">
+              {pathName === "/" ? (
+                <HomeFill className="size-8" />
+              ) : (
+                <HomeIcon className="size-8" />
+              )}
+            </div>
           </Link>
         </li>
 
-        <li className="w-full">
+        <li className="h-full w-full">
           <Link href="/search">
-            <button
-              className={`w-full text-center hover:shadow hover:rounded-md hover:text-primary py-2 ${
-                pathName !== "/search" ? "text-gray" : ""
-              }`}
-            >
-              <div>
-                <FontAwesomeIcon icon={faMagnifyingGlass} size="xl" />
-              </div>
-              <p className="text-sm p-1">search</p>
-            </button>
+            <div className="flex h-full w-full items-center justify-center">
+              <MagnifyingGlassIcon
+                className={`size-8 w-full ${pathName === "/search" ? "stroke-2" : "stroke-1"}`}
+              />
+            </div>
           </Link>
         </li>
 
-        <li className="w-full">
+        <li className="h-full w-full">
           <Link href="/favorite">
-            {pathName === "/favorite" ? (
-              <button className="w-full text-center hover:shadow hover:rounded-md hover:text-primary py-2">
-                <div>
-                  <FontAwesomeIcon icon={heartFill} size="xl" />
-                </div>
-                <p className="text-sm p-1">favorite</p>
-              </button>
-            ) : (
-              <button className="w-full text-center text-gray hover:shadow hover:rounded-md hover:text-primary py-2">
-                <div>
-                  <FontAwesomeIcon icon={heartNorm} size="xl" />
-                </div>
-                <p className="text-sm p-1">favorite</p>
-              </button>
-            )}
+            <div className="flex h-full w-full items-center justify-center">
+              {pathName === "/favorite" ? (
+                <HeartFill className="size-8" />
+              ) : (
+                <HeartIcon className="size-8" />
+              )}
+            </div>
           </Link>
         </li>
       </ul>
-    </nav>
+    </footer>
   );
 };
 

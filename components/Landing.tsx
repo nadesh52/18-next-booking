@@ -19,7 +19,7 @@ const Landing = () => {
         <div className="relative w-full">
           <div className="2xs:block pointer-events-none absolute top-0 -z-40 hidden h-[100px] w-full bg-base md:h-[120px]"></div>
         </div>
-        <div className="border-slate-400 2xs:max-h-[170px] 2xs:max-w-[170px] my-4 max-h-[120px] max-w-[120px] overflow-hidden rounded-xl border bg-cover md:max-h-[200px] md:max-w-[200px]">
+        <div className="border-slate-400 2xs:max-h-[170px] 2xs:max-w-[170px] my-8 max-h-[120px] max-w-[120px] overflow-hidden rounded-xl border bg-cover">
           <Image
             src="/assets/logos/shoplogo.jpg"
             alt="shop"

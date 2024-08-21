@@ -4,6 +4,7 @@ import Title from "@/components/Title";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import UserCard from "./components/UserCard";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const Search = () => {
   const [users, setUsers] = useState([]);
@@ -21,31 +22,48 @@ const Search = () => {
 
   return (
     <article className="px-5">
-      <div className="mt-10">
-        <label className="relative">
-          {/* <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            size="xl"
-            className="absolute bottom-0 left-2.5 text-gray pointer-events-none"
-          /> */}
+      <div className="mt-2">
+        <div className="relative">
+          <MagnifyingGlassIcon className="pointer-events-none absolute left-2.5 top-1/2 size-6 2xs:size-8 -translate-y-1/2 text-gray" />
           <input
             type="text"
-            placeholder="search seller"
-            className="outline-none rounded-lg h-14 w-full px-12 text-2xl font-medium ring-gray ring-1 ring-inset hover:ring-primary focus:ring-inset focus:ring-primary"
+            placeholder="Search..."
+            className="h-10 2xs:h-14 w-full rounded-lg px-12 text-2xl font-medium outline-none ring-1 ring-inset ring-gray hover:ring-primary focus:ring-inset focus:ring-primary"
           />
-        </label>
+        </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-4">
         <Title>Top Credit</Title>
-        <div className="py-4 w-full whitespace-nowrap scrollbar-thin overflow-hidden overflow-x-scroll">
-          <ul className="flex justify-start items-center gap-4">
+        <div className="w-full overflow-hidden overflow-x-scroll whitespace-nowrap py-4 scrollbar-thin">
+          <ul className="flex items-center justify-start gap-4 2xs:gap-8">
             {users.map((user: any, i: any) => (
               <li key={i}>
                 <UserCard {...user} />
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <Title>Users</Title>
+        <div className="mt-4 flex flex-col divide-y">
+          {users.map((user: any, idx) => (
+            <div key={idx} className="flex items-center gap-4 h-20 p-2 w-full hover:bg-slate-100 cursor-pointer">
+              <Image
+                src="/assets/icons/7.png"
+                width={512}
+                height={512}
+                alt="icon"
+                className="h-[50px] w-[50px] rounded-full"
+              />
+              <div className="flex flex-col">
+                <p className="font-medium text-lg">{user.username}</p>
+                <p className="text-slate-400">{user.name}</p>
+                </div>
+            </div>
+          ))}
         </div>
       </div>
     </article>
